@@ -1,0 +1,49 @@
+name: Update profile README
+
+on:
+  schedule:
+    # GitHub cron runs in UTC. Trigger at both possible UTC hours, then gate on
+    # Europe/Berlin local time so the update stays at 15:00 across DST changes.
+    - cron: "0 13,14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Check Berlin time
+        id: berlin-time
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(TZ=Europe/Berlin date +%H)" = "15" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Update README
+        if: steps.berlin-time.outputs.should_run == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: sakshianil
+          README_PATH: README.md
+        run: node scripts/update-profile-readme.mjs
+
+      - name: Commit README changes
+        if: steps.berlin-time.outputs.should_run == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v7.2.0
+        with:
+          commit_message: "chore: update profile README"
+          file_pattern: README.md

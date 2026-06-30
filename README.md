@@ -1,171 +1,118 @@
-# AI Website Cloner Template
+# Sakshi B. Sharma
 
-<a href="https://github.com/JCodesMore/ai-website-cloner-template/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License" /></a> <a href="https://github.com/JCodesMore/ai-website-cloner-template/stargazers"><img src="https://img.shields.io/github/stars/JCodesMore/ai-website-cloner-template?style=flat" alt="Stars" /></a> <a href="https://discord.gg/hrTSX5yTpB"><img src="https://img.shields.io/discord/1400896964597383279?label=discord" alt="Discord" /></a>
+**Founder, scientist, and AI systems builder | GenAI workflow architect | Data, automation, and product-minded builder based in Frankfurt**
 
-A reusable template for reverse-engineering any website into a clean, modern Next.js codebase using AI coding agents. 
+[![GitHub](https://img.shields.io/badge/GitHub-sakshianil-181717?style=flat&logo=github)](https://github.com/sakshianil)
+[![Portfolio](https://img.shields.io/badge/Portfolio-sakshianil.github.io-7B68EE?style=flat)](https://sakshianil.github.io)
+[![X](https://img.shields.io/badge/X-Sakshi_B_Sharma-000000?style=flat&logo=x)](https://x.com/Sakshi_B_Sharma)
+[![Location](https://img.shields.io/badge/Frankfurt-Germany-0A66C2?style=flat)](https://github.com/sakshianil)
 
-**Recommended: [Claude Code](https://docs.anthropic.com/en/docs/claude-code) with Opus 4.7 for best results** — but works with a variety of AI coding agents.
+---
 
-Point it at a URL, run `/clone-website`, and your AI agent will inspect the site, extract design tokens and assets, write component specs, and dispatch parallel builders to reconstruct every section.
+## About Me
 
-## Demo
+I build practical AI systems that turn ideas into workflows, products, and automation people can actually use. My work sits at the intersection of scientific thinking, data-heavy operations, GenAI application design, and hands-on engineering.
 
-[![Watch the demo](docs/design-references/comparison.png)](https://youtu.be/O669pVZ_qr0)
+I am especially interested in agentic workflows, job-search automation, AI learning products, healthcare and life-science data systems, and small-business tools that reduce repetitive work. I like building from first principles, shipping fast, and then polishing the experience until it feels trustworthy.
 
-> Click the image above to watch the full demo on YouTube.
+Current focus areas:
 
-## Quick Start
+- AI agents, LangChain-style workflows, RAG, browser automation, and evaluation loops
+- Data products, dashboards, GitHub Pages portfolios, and lightweight full-stack apps
+- Practical automation for career operations, content generation, research, and business workflows
+- Founder-led experiments where product, brand, operations, and code all need to meet cleanly
 
-> **Important:** Start by making your own copy with GitHub's **Use this template** button. Do not clone this template repository directly for your website project, and do not open pull requests here with your generated website.
+---
 
-1. **Create your own repository from this template**
+<!--START_SECTION:github_activity-->
+## GitHub Snapshot
 
-   On the GitHub page for this project, click **Use this template**, then click **Create a new repository**.
+![Public Repos](https://img.shields.io/badge/Public%20Repos-33-blue?style=flat)
+![Followers](https://img.shields.io/badge/Followers-0-blue?style=flat)
+![Location](https://img.shields.io/badge/Location-Frankfurt%2C%20Germany-7B68EE?style=flat)
 
-   Give your new repository a name, choose whether it should be public or private, then click **Create repository**. If GitHub shows an **Include all branches** option, you can leave it off.
+**My GitHub Data**
 
-   This gives you your own separate project to work in, so your website changes stay in your account instead of coming back to the main template.
+> Public repositories: **33**
+>
+> Source repositories: **18**
+>
+> Forked repositories: **15**
+>
+> Latest public push: **Jun 30, 2026, 12:34 PM**
 
-2. **Open your new repository on your computer**
+**I Mostly Code In**
 
-   After GitHub creates your copy, open that new repository. Click **Code** and open or clone your new repository with your preferred coding tool.
-
-   If you use the terminal, the command will look like this:
-
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/YOUR-NEW-REPOSITORY.git
-   cd YOUR-NEW-REPOSITORY
-   ```
-
-3. **Install dependencies**
-   ```bash
-   npm install
-   ```
-4. **Start your AI agent** — Claude Code recommended:
-   ```bash
-   claude --chrome
-   ```
-5. **Run the skill**:
-   ```
-   /clone-website <target-url1> [<target-url2> ...]
-   ```
-6. **Customize** (optional) — after the base clone is built, modify as needed
-
-> Using a different agent? Open `AGENTS.md` for project instructions — most agents pick it up automatically.
-
-## Supported Platforms
-
-| Agent                                                         | Status                     |
-| ------------------------------------------------------------- | -------------------------- |
-| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | **Recommended** — Opus 4.7 |
-| [Codex CLI](https://github.com/openai/codex)                  | Supported                  |
-| [OpenCode](https://opencode.ai/)                              | Supported                  |
-| [GitHub Copilot](https://github.com/features/copilot)         | Supported                  |
-| [Cursor](https://cursor.com/)                                 | Supported                  |
-| [Windsurf](https://codeium.com/windsurf)                      | Supported                  |
-| [Gemini CLI](https://github.com/google-gemini/gemini-cli)     | Supported                  |
-| [Cline](https://github.com/cline/cline)                       | Supported                  |
-| [Roo Code](https://github.com/RooCodeInc/Roo-Code)            | Supported                  |
-| [Continue](https://continue.dev/)                             | Supported                  |
-| [Amazon Q](https://aws.amazon.com/q/developer/)               | Supported                  |
-| [Augment Code](https://www.augmentcode.com/)                  | Supported                  |
-| [Aider](https://aider.chat/)                                  | Supported                  |
-
-## Prerequisites
-
-- [Node.js](https://nodejs.org/) 24+
-- An AI coding agent (see [Supported Platforms](#supported-platforms))
-
-## Tech Stack
-
-- **Next.js 16** — App Router, React 19, TypeScript strict
-- **shadcn/ui** — Radix primitives + Tailwind CSS v4
-- **Tailwind CSS v4** — oklch design tokens
-- **Lucide React** — default icons (replaced by extracted SVGs during cloning)
-
-## How It Works
-
-The `/clone-website` skill runs a multi-phase pipeline:
-
-1. **Reconnaissance** — screenshots, design token extraction, interaction sweep (scroll, click, hover, responsive)
-2. **Foundation** — updates fonts, colors, globals, downloads all assets
-3. **Component Specs** — writes detailed spec files (`docs/research/components/`) with exact computed CSS values, states, behaviors, and content
-4. **Parallel Build** — dispatches builder agents in git worktrees, one per section/component
-5. **Assembly & QA** — merges worktrees, wires up the page, runs visual diff against the original
-
-Each builder agent receives the full component specification inline — exact `getComputedStyle()` values, interaction models, multi-state content, responsive breakpoints, and asset paths. No guessing.
-
-## Use Cases
-
-- **Platform migration** — rebuild a site you own from WordPress/Webflow/Squarespace into a modern Next.js codebase
-- **Lost source code** — your site is live but the repo is gone, the developer left, or the stack is legacy. Get the code back in a modern format
-- **Learning** — deconstruct how production sites achieve specific layouts, animations, and responsive behavior by working with real code
-
-## Not Intended For
-
-- **Phishing or impersonation** — this project must not be used for deceptive purposes, impersonation, or any activity that breaks the law.
-- **Passing off someone's design as your own** — logos, brand assets, and original copy belong to their owners.
-- **Violating terms of service** — some sites explicitly prohibit scraping or reproduction. Check first.
-
-## Project Structure
-
-```
-src/
-  app/              # Next.js routes
-  components/       # React components
-    ui/             # shadcn/ui primitives
-    icons.tsx       # Extracted SVG icons
-  lib/utils.ts      # cn() utility
-  types/            # TypeScript interfaces
-  hooks/            # Custom React hooks
-public/
-  images/           # Downloaded images from target
-  videos/           # Downloaded videos from target
-  seo/              # Favicons, OG images
-docs/
-  research/         # Extraction output & component specs
-  design-references/ # Screenshots
-scripts/
-  sync-agent-rules.sh  # Regenerate agent instruction files
-  sync-skills.mjs      # Regenerate /clone-website for all platforms
-AGENTS.md           # Agent instructions (single source of truth)
-CLAUDE.md           # Claude Code config (imports AGENTS.md)
-GEMINI.md           # Gemini CLI config (imports AGENTS.md)
+```text
+TypeScript          4 repos   ██████░░░░░░░░░░░░░░    28.6 %
+Jupyter Notebook    3 repos   ████░░░░░░░░░░░░░░░░    21.4 %
+Python              3 repos   ████░░░░░░░░░░░░░░░░    21.4 %
+HTML                2 repos   ███░░░░░░░░░░░░░░░░░    14.3 %
+CSS                 1 repos   █░░░░░░░░░░░░░░░░░░░     7.1 %
+SAS                 1 repos   █░░░░░░░░░░░░░░░░░░░     7.1 %
 ```
 
-## Commands
+**Recently Updated Projects**
 
-```bash
-npm run dev    # Start dev server
-npm run build  # Production build
-npm run lint   # ESLint check
-npm run typecheck # TypeScript check
-npm run check  # Run lint + typecheck + build
-```
+- [ai-website-cloner-template](https://github.com/sakshianil/ai-website-cloner-template) (fork · TypeScript) - Clone any website with one command using AI coding agents
+- [OmniRoute](https://github.com/sakshianil/OmniRoute) (fork) - Never stop coding. Free AI gateway: one endpoint, 160+ providers (50+ free), connect Claude Code, Codex, Cursor, Cline ...
+- [sb.dev](https://github.com/sakshianil/sb.dev) (source) - No description yet.
+- [ai-engineering-from-scratch](https://github.com/sakshianil/ai-engineering-from-scratch) (fork) - Learn it. Build it. Ship it for others.
+- [headroom](https://github.com/sakshianil/headroom) (fork) - Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Librar...
+- [youtube-educational-content](https://github.com/sakshianil/youtube-educational-content) (source) - No description yet.
 
-### If using docker
+Last updated: Jun 30, 2026, 12:43 PM Europe/Berlin
+<!--END_SECTION:github_activity-->
 
-```bash
-docker compose up app --build # build and run the app
-docker compose up dev --build # run the app in dev mode on port 3001
-```
+<div align="center">
 
-## Updating for Other Platforms
+### Most Utilised Skills
 
-Two source-of-truth files power all platform support. Edit the source, then run the sync script:
+#### AI, Automation, and Product Engineering
 
-| What                   | Source of truth                         | Sync command                       |
-| ---------------------- | --------------------------------------- | ---------------------------------- |
-| Project instructions   | `AGENTS.md`                             | `bash scripts/sync-agent-rules.sh` |
-| `/clone-website` skill | `.claude/skills/clone-website/SKILL.md` | `node scripts/sync-skills.mjs`     |
+<img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original-wordmark.svg" title="Python" height="50" width="50" />
+<img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="TypeScript" height="50" width="50" />
+<img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" height="50" width="50" />
+<img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg" title="React" height="50" width="50" />
+<img src="https://github.com/devicons/devicon/blob/master/icons/nextjs/nextjs-original-wordmark.svg" title="Next.js" height="50" width="50" />
 
-Each script regenerates the platform-specific copies automatically. Agents that read the source files natively need no regeneration.
+#### Data, Research, and Workflow Tools
 
+<img src="https://github.com/devicons/devicon/blob/master/icons/r/r-original.svg" title="R" height="50" width="50" />
+<img src="https://github.com/devicons/devicon/blob/master/icons/jupyter/jupyter-original-wordmark.svg" title="Jupyter" height="50" width="50" />
+<img src="https://github.com/devicons/devicon/blob/master/icons/bash/bash-original.svg" title="Bash" height="50" width="50" />
+<img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original-wordmark.svg" title="Docker" height="50" width="50" />
+<img src="https://github.com/devicons/devicon/blob/master/icons/githubactions/githubactions-original.svg" title="GitHub Actions" height="50" width="50" />
 
-## Star History
+#### Cloud, Version Control, and Delivery
 
-[![Star History Chart](https://api.star-history.com/svg?repos=JCodesMore/ai-website-cloner-template&type=Date)](https://star-history.com/#JCodesMore/ai-website-cloner-template&Date)
+<img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original-wordmark.svg" title="Git" height="50" width="50" />
+<img src="https://github.com/devicons/devicon/blob/master/icons/github/github-original-wordmark.svg" title="GitHub" height="50" width="50" />
+<img src="https://github.com/devicons/devicon/blob/master/icons/googlecloud/googlecloud-original.svg" title="Google Cloud" height="50" width="50" />
+<img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VS Code" height="50" width="50" />
 
-## License
+</div>
 
-MIT
+---
+
+## Featured Work Themes
+
+- **Agentic systems:** local-first automation, approval dashboards, browser workflows, and AI-assisted research loops.
+- **Learning products:** hands-on AI learning content, career-path tools, and practical GenAI demos.
+- **Data and healthcare workflows:** data-governance-aware analysis, SAS/CDISC-adjacent portfolio work, and reproducible reporting.
+- **Founder experiments:** brand, product, affiliate catalog, and operational tooling built with a shipping mindset.
+
+## Connect With Me
+
+I am open to collaboration around:
+
+- AI agents and real-world automation
+- Data products, dashboards, and workflow tooling
+- AI learning content and portfolio projects
+- Founder-led product experiments
+
+**Links**
+
+- GitHub: [github.com/sakshianil](https://github.com/sakshianil)
+- Portfolio: [sakshianil.github.io](https://sakshianil.github.io)
+- X: [@Sakshi_B_Sharma](https://x.com/Sakshi_B_Sharma)
