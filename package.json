@@ -1,8 +1,8 @@
 {
-  "name": "ai-website-clone-template",
+  "name": "sb-dev",
   "version": "0.3.1",
   "private": true,
-  "description": "Clone any website into a clean, modern Next.js codebase using AI coding agents",
+  "description": "Retro computer inspired sb.dev portfolio cloned from edh.dev",
   "author": "JCodesMore",
   "license": "MIT",
   "repository": {
